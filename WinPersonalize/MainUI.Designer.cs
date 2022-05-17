@@ -781,14 +781,13 @@
             this.colorSample.BorderColor = System.Drawing.Color.White;
             this.colorSample.BorderRadius = 5;
             this.colorSample.BorderThickness = 2;
-            this.colorSample.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.colorSample.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.colorSample.Location = new System.Drawing.Point(21, 76);
             this.colorSample.Margin = new System.Windows.Forms.Padding(0);
             this.colorSample.Name = "colorSample";
             this.colorSample.ShadowDecoration.Parent = this.colorSample;
             this.colorSample.Size = new System.Drawing.Size(78, 37);
             this.colorSample.TabIndex = 8;
-            this.colorSample.Click += new System.EventHandler(this.colorSample_Click);
             // 
             // PersonalizeAccentColor_Disable
             // 

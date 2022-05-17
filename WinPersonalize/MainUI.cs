@@ -270,16 +270,5 @@ namespace WinPersonalize
         }
         #endregion
 
-        private void colorSample_Click(object sender, EventArgs e)
-        {
-            ColorDialog dlg = new ColorDialog();
-
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                string str = null;
-                str = dlg.Color.Name.ToString();
-                colorSample.FillColor = dlg.Color;
-            }
-        }
     }
 }
