@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms.Suite;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,16 +16,21 @@ namespace WinPersonalize
 {
     public partial class MainUI : Form
     {
+        UserPreferenceChangedEventHandler UserPreferenceChanged;
         public MainUI()
         {
             InitializeComponent();
-            ShadowForm.SetShadowForm(this);
             this.Icon = Properties.Resources.icon;
 
             ApplyTheme();
 
             BrightnessTrackBar.Value = get_CurrentBrightnessLevel();
             ajustResolutionComboBox();
+
+            UserPreferenceChanged = new UserPreferenceChangedEventHandler(SystemEvents_UserPreferenceChanged);
+            SystemEvents.UserPreferenceChanged += UserPreferenceChanged;
+            this.Disposed += new EventHandler(MainUI_Disposed);
+
         }
         protected override CreateParams CreateParams
         {
@@ -37,6 +43,7 @@ namespace WinPersonalize
         }
         private void ApplyTheme()
         {
+            ShadowForm.SetShadowForm(this);
             var themeColor = WindowsColor.GetAccentColor();
             colorSample.FillColor = themeColor;
             ApplyButton.FillColor = ApplyButton.FillColor2 = themeColor;
@@ -44,6 +51,23 @@ namespace WinPersonalize
             Banner.BackColor = WindowsColor.GetAccentColor();
             Banner.FillColor = Banner.FillColor2 = ControlPaint.Light(WindowsColor.GetAccentColor());
             Program.ApplyThemeColor_CheckButtons(this);
+
+
+            ShadowForm.SetShadowForm(this);
+            Banner.BackColor = WindowsColor.GetAccentColor();
+            Program.ApplyThemeColor_CheckButtons(this);
+        }
+
+        private void MainUI_Disposed(object sender, EventArgs e)
+        {
+            SystemEvents.UserPreferenceChanged -= UserPreferenceChanged;
+        }
+        private void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            if (e.Category == UserPreferenceCategory.General || e.Category == UserPreferenceCategory.VisualStyle)
+            {
+                ApplyTheme();
+            }
         }
 
         public void UpdateBrightnessValue()
