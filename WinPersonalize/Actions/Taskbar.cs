@@ -28,48 +28,32 @@ namespace WinPersonalize
 
         private void TaskbarAlign(bool enable)
         {
-            // Source: https://github.com/mdhiggins/CenterTaskbar
             try
             {
-                Process[] runingProcess = Process.GetProcesses();
+                Process p = new Process();
+                p.StartInfo.FileName = "CMD.exe";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.CreateNoWindow = true;
+
                 if (enable)
                 {
-                    for (int i = 0; i < runingProcess.Length; i++)
-                    {
-                        if (runingProcess[i].ProcessName == "CenterTaskbar")
-                        {
-                            runingProcess[i].Kill();
-                        }
-                    }
-
                     try
                     {
-                        for (int i = 0; i < runingProcess.Length; i++)
-                        {
-                            if (runingProcess[i].ProcessName == "CenterTaskbar")
-                            {
-                                runingProcess[i].Kill();
-                            }
-                        }
-
-                        System.Diagnostics.Process.Start("CenterTaskbar.exe");
+                        p.StartInfo.Arguments = "/C Translucent.exe /norestart /sp- /verysilent /allusers";
+                        p.Start();
                     }
                     catch { }
+
                 }
                 else
                 {
-                    for (int i = 0; i < runingProcess.Length; i++)
-                    {
-                        if (runingProcess[i].ProcessName == "CenterTaskbar")
-                        {
-                            runingProcess[i].Kill();
-                        }
-                    }
+                    p.StartInfo.Arguments = "/C taskkill /F /IM \"TranslucentTB.exe\" /T";
+                    p.Start();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Cannot change Taskbar align.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cannot apply transparent effect to the Taskbar.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void TaskbarSize(bool enable)

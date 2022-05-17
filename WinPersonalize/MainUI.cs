@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Management;
@@ -11,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace WinPersonalize
 {
@@ -80,6 +82,8 @@ namespace WinPersonalize
         {
             try
             {
+                set_Brightness(100);
+
                 Taskbar taskbarActions = new Taskbar();
                 StartMenu startMenuActions = new StartMenu();
                 Personalize personalizeActions = new Personalize();
@@ -127,7 +131,7 @@ namespace WinPersonalize
                 if (confirmation == DialogResult.Yes)
                 {
                     Task applyChanges_Taskbar = Task.Factory.StartNew(() => taskbarActions.ApplyAction(
-                            TaskbarAlign_Center.Checked,
+                            Transparent_Enable.Checked,
                             TaskbarSize_Small.Checked,
                             SmallSearchIcon.Checked,
                             HideTaskViewIcon.Checked,
@@ -179,7 +183,7 @@ namespace WinPersonalize
 
         private void DefaultButton_Click(object sender, EventArgs e)
         {
-            TaskbarAlign_Center.Checked = TaskbarSize_Small.Checked = PersonalizeColorMode_Dark.Checked = PersonalizeTransparentEffect_Enable.Checked = PersonalizeAccentColor_Enable.Checked = PersonalizeDesktopIconSize_Small.Checked = true;
+            Transparent_Enable.Checked = TaskbarSize_Small.Checked = PersonalizeColorMode_Dark.Checked = PersonalizeTransparentEffect_Enable.Checked = PersonalizeAccentColor_Enable.Checked = PersonalizeDesktopIconSize_Small.Checked = true;
             Program.CheckAll_CheckBox(this);
         }
 
@@ -224,7 +228,7 @@ namespace WinPersonalize
             {
                 MessageBox.Show("Cannot adjust Resolution combo box.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        } 
 
         #region Change brightness directly
         int get_CurrentBrightnessLevel()
@@ -265,5 +269,17 @@ namespace WinPersonalize
             BrightnessPercent.Text = String.Format("Brightness: {0}%", BrightnessTrackBar.Value.ToString());
         }
         #endregion
+
+        private void colorSample_Click(object sender, EventArgs e)
+        {
+            ColorDialog dlg = new ColorDialog();
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string str = null;
+                str = dlg.Color.Name.ToString();
+                colorSample.FillColor = dlg.Color;
+            }
+        }
     }
 }
