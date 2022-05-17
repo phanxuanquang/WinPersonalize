@@ -852,7 +852,7 @@
             this.Personalize_TransparentEffect.Size = new System.Drawing.Size(148, 59);
             this.Personalize_TransparentEffect.TabIndex = 3;
             this.Personalize_TransparentEffect.TabStop = false;
-            this.Personalize_TransparentEffect.Text = "Transparent Effect";
+            this.Personalize_TransparentEffect.Text = "Transparency";
             // 
             // PersonalizeTransparentEffect_Disable
             // 

@@ -20,7 +20,7 @@ namespace WinPersonalize
         {
             try
             {
-                if (enable)
+                if (enable == true)
                 {
                     commandReg = "Set-ItemProperty";
                     pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager";
@@ -47,7 +47,7 @@ namespace WinPersonalize
         {
             try
             {
-                if (enable)
+                if (enable == true)
                 {
                     commandReg = "Set-ItemProperty";
                     pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer";
@@ -72,7 +72,7 @@ namespace WinPersonalize
                 nameReg = "ColorPrevalence";
                 pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize";
 
-                if (enable)
+                if (enable == true)
                 {
                     Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1");
                 }

@@ -34,7 +34,7 @@ namespace WinPersonalize
                 pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize";
                 nameReg = "AppsUseLightTheme";
 
-                if (enable)
+                if (enable == true)
                 {
                     Program.runCommand(commandReg, pathReg, nameReg, "-Value 0");
                 }
@@ -56,7 +56,7 @@ namespace WinPersonalize
                 nameReg = "ColorPrevalence";
                 pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\DWM";
 
-                if (enable)
+                if (enable == true)
                 {
                     Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1");
                 }
@@ -78,7 +78,7 @@ namespace WinPersonalize
                 pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize";
                 nameReg = "EnableTransparency";
 
-                if (enable)
+                if (enable == true)
                 {
                     Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
                 }
@@ -122,7 +122,7 @@ namespace WinPersonalize
         {
             try
             {
-                if (enable)
+                if (enable == true)
                 {
                     commandReg = "Set-ItemProperty";
                     pathReg = @"HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop";
@@ -143,7 +143,7 @@ namespace WinPersonalize
         {
             try
             {
-                if (enable)
+                if (enable == true)
                 {
                     string command = String.Format("Set-DisplayResolution -Width {0} -Height {1} -Force", width, height);
                     Program.runCommand_Advanced(command);

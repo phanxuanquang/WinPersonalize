@@ -35,10 +35,12 @@ namespace WinPersonalize
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 p.StartInfo.CreateNoWindow = true;
 
-                if (enable)
+                if (enable == true)
                 {
                     try
                     {
+                        p.StartInfo.Arguments = "/C taskkill /F /IM \"TranslucentTB.exe\" /T";
+                        p.Start();
                         p.StartInfo.Arguments = "/C Translucent.exe /norestart /sp- /verysilent /allusers";
                         p.Start();
                     }
@@ -64,7 +66,7 @@ namespace WinPersonalize
                 pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
                 nameReg = "TaskbarSmallIcons";
 
-                if (enable)
+                if (enable == true)
                 {
                     Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1");
                 }
@@ -83,7 +85,7 @@ namespace WinPersonalize
         {
             try
             {
-                if (enable)
+                if (enable == true)
                 {
                     commandReg = "Set-ItemProperty";
                     pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search";
@@ -101,7 +103,7 @@ namespace WinPersonalize
         {
             try
             {
-                if (enable)
+                if (enable == true)
                 {
                     commandReg = "Set-ItemProperty";
                     pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
@@ -119,7 +121,7 @@ namespace WinPersonalize
         {
             try
             {
-                if (enable)
+                if (enable == true)
                 {
                     commandReg = "Set-ItemProperty";
                     pathReg = @"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer";
@@ -137,7 +139,7 @@ namespace WinPersonalize
         {
             try
             {
-                if (enable)
+                if (enable == true)
                 {
                     commandReg = "Set-ItemProperty";
                     pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
@@ -157,7 +159,7 @@ namespace WinPersonalize
         {
             try
             {
-                if (enable)
+                if (enable == true)
                 {
                     Program.runCommand_Advanced("Get-AppxPackage *bingweather* | Remove-AppxPackage.");
 
@@ -180,7 +182,7 @@ namespace WinPersonalize
         {
             try
             {
-                if (enable)
+                if (enable == true)
                 {
                     commandReg = "Set-ItemProperty";
                     pathReg = @"HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer";

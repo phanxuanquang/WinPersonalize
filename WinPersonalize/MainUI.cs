@@ -118,7 +118,7 @@ namespace WinPersonalize
                         break;
                 }
 
-                DialogResult confirmation = MessageBox.Show("Do you want to continue?", "CONFIRMATION", MessageBoxButtons.YesNo);
+                DialogResult confirmation = MessageBox.Show("Do you want to continue?", "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (confirmation == DialogResult.Yes)
                 {
                     Task applyChanges_Taskbar = Task.Factory.StartNew(() => taskbarActions.ApplyAction(
@@ -150,12 +150,10 @@ namespace WinPersonalize
 
                     Task.WaitAll(applyChanges_Taskbar, applyChanges_StartMenu, applyChanges_Personalize);
 
-                    Task restartExplorer = Task.Factory.StartNew(() => Program.runCommand_Advanced("stop-process -name explorer –force"));
-                    restartExplorer.Wait();
-
+                    
                     Thread.Sleep(1000);
 
-                    DialogResult dialogResult = MessageBox.Show("To apply changes completely. You need to restart your computer.\nRestart now?", "Restart computer", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("To apply changes completely. You need to restart your computer.\nRestart now?", "Restart computer", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     if (dialogResult == DialogResult.Yes)
                     {
                         Program.runCommand_Advanced("Restart-Computer -Force");
