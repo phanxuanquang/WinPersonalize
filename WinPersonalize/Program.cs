@@ -20,6 +20,7 @@ namespace WinPersonalize
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainUI());
+
         }
         public static Process p = new Process();
         public static void runCommand(string command, string path, string name, string arguments)

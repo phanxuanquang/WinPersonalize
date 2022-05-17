@@ -40,8 +40,8 @@
             this.HideTaskViewIcon = new Guna.UI2.WinForms.Guna2CheckBox();
             this.RemoveBingWeather = new Guna.UI2.WinForms.Guna2CheckBox();
             this.Taskbar_Transparent = new System.Windows.Forms.GroupBox();
-            this.Transparent_Enable = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.Transparent_Disable = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.TaskbarTransparent_Disable = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.TaskbarTransparent_Enable = new Guna.UI2.WinForms.Guna2RadioButton();
             this.Personalization = new System.Windows.Forms.GroupBox();
             this.PersonalizeDesktopIconArrange_Auto = new Guna.UI2.WinForms.Guna2CheckBox();
             this.Personalize_DesktopIconSize = new System.Windows.Forms.GroupBox();
@@ -344,8 +344,8 @@
             // 
             this.Taskbar_Transparent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Taskbar_Transparent.BackColor = System.Drawing.Color.Transparent;
-            this.Taskbar_Transparent.Controls.Add(this.Transparent_Enable);
-            this.Taskbar_Transparent.Controls.Add(this.Transparent_Disable);
+            this.Taskbar_Transparent.Controls.Add(this.TaskbarTransparent_Disable);
+            this.Taskbar_Transparent.Controls.Add(this.TaskbarTransparent_Enable);
             this.Taskbar_Transparent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.Taskbar_Transparent.ForeColor = System.Drawing.Color.White;
             this.Taskbar_Transparent.Location = new System.Drawing.Point(185, 30);
@@ -356,55 +356,54 @@
             this.Taskbar_Transparent.TabStop = false;
             this.Taskbar_Transparent.Text = "Transparent";
             // 
-            // Transparent_Enable
+            // TaskbarTransparent_Disable
             // 
-            this.Transparent_Enable.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Transparent_Enable.Animated = true;
-            this.Transparent_Enable.AutoSize = true;
-            this.Transparent_Enable.Checked = true;
-            this.Transparent_Enable.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.Transparent_Enable.CheckedState.BorderThickness = 0;
-            this.Transparent_Enable.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.Transparent_Enable.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.Transparent_Enable.CheckedState.InnerOffset = -4;
-            this.Transparent_Enable.Location = new System.Drawing.Point(26, 61);
-            this.Transparent_Enable.Margin = new System.Windows.Forms.Padding(0);
-            this.Transparent_Enable.Name = "Transparent_Enable";
-            this.Transparent_Enable.Size = new System.Drawing.Size(58, 18);
-            this.Transparent_Enable.TabIndex = 1;
-            this.Transparent_Enable.TabStop = true;
-            this.Transparent_Enable.Text = "Enable";
-            this.Transparent_Enable.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.Transparent_Enable.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.Transparent_Enable.UncheckedState.BorderThickness = 0;
-            this.Transparent_Enable.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.Transparent_Enable.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.Transparent_Enable.UseCompatibleTextRendering = true;
-            this.Transparent_Enable.UseVisualStyleBackColor = true;
+            this.TaskbarTransparent_Disable.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TaskbarTransparent_Disable.Animated = true;
+            this.TaskbarTransparent_Disable.AutoSize = true;
+            this.TaskbarTransparent_Disable.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.TaskbarTransparent_Disable.CheckedState.BorderThickness = 0;
+            this.TaskbarTransparent_Disable.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.TaskbarTransparent_Disable.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.TaskbarTransparent_Disable.CheckedState.InnerOffset = -4;
+            this.TaskbarTransparent_Disable.Location = new System.Drawing.Point(26, 61);
+            this.TaskbarTransparent_Disable.Margin = new System.Windows.Forms.Padding(0);
+            this.TaskbarTransparent_Disable.Name = "TaskbarTransparent_Disable";
+            this.TaskbarTransparent_Disable.Size = new System.Drawing.Size(60, 18);
+            this.TaskbarTransparent_Disable.TabIndex = 1;
+            this.TaskbarTransparent_Disable.Text = "Disable";
+            this.TaskbarTransparent_Disable.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.TaskbarTransparent_Disable.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.TaskbarTransparent_Disable.UncheckedState.BorderThickness = 0;
+            this.TaskbarTransparent_Disable.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.TaskbarTransparent_Disable.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.TaskbarTransparent_Disable.UseCompatibleTextRendering = true;
+            this.TaskbarTransparent_Disable.UseVisualStyleBackColor = true;
             // 
-            // Transparent_Disable
+            // TaskbarTransparent_Enable
             // 
-            this.Transparent_Disable.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Transparent_Disable.Animated = true;
-            this.Transparent_Disable.AutoSize = true;
-            this.Transparent_Disable.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.Transparent_Disable.CheckedState.BorderThickness = 0;
-            this.Transparent_Disable.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.Transparent_Disable.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.Transparent_Disable.CheckedState.InnerOffset = -4;
-            this.Transparent_Disable.Location = new System.Drawing.Point(26, 28);
-            this.Transparent_Disable.Margin = new System.Windows.Forms.Padding(0);
-            this.Transparent_Disable.Name = "Transparent_Disable";
-            this.Transparent_Disable.Size = new System.Drawing.Size(60, 18);
-            this.Transparent_Disable.TabIndex = 0;
-            this.Transparent_Disable.Text = "Disable";
-            this.Transparent_Disable.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.Transparent_Disable.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.Transparent_Disable.UncheckedState.BorderThickness = 0;
-            this.Transparent_Disable.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.Transparent_Disable.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.Transparent_Disable.UseCompatibleTextRendering = true;
-            this.Transparent_Disable.UseVisualStyleBackColor = true;
+            this.TaskbarTransparent_Enable.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TaskbarTransparent_Enable.Animated = true;
+            this.TaskbarTransparent_Enable.Checked = true;
+            this.TaskbarTransparent_Enable.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.TaskbarTransparent_Enable.CheckedState.BorderThickness = 0;
+            this.TaskbarTransparent_Enable.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.TaskbarTransparent_Enable.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.TaskbarTransparent_Enable.CheckedState.InnerOffset = -4;
+            this.TaskbarTransparent_Enable.Location = new System.Drawing.Point(26, 28);
+            this.TaskbarTransparent_Enable.Margin = new System.Windows.Forms.Padding(0);
+            this.TaskbarTransparent_Enable.Name = "TaskbarTransparent_Enable";
+            this.TaskbarTransparent_Enable.Size = new System.Drawing.Size(60, 18);
+            this.TaskbarTransparent_Enable.TabIndex = 0;
+            this.TaskbarTransparent_Enable.TabStop = true;
+            this.TaskbarTransparent_Enable.Text = "Enable";
+            this.TaskbarTransparent_Enable.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.TaskbarTransparent_Enable.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.TaskbarTransparent_Enable.UncheckedState.BorderThickness = 0;
+            this.TaskbarTransparent_Enable.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.TaskbarTransparent_Enable.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.TaskbarTransparent_Enable.UseCompatibleTextRendering = true;
+            this.TaskbarTransparent_Enable.UseVisualStyleBackColor = true;
             // 
             // Personalization
             // 
@@ -1126,6 +1125,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.MainUI_Load);
             this.Taskbar_Size.ResumeLayout(false);
             this.Taskbar_Size.PerformLayout();
             this.Taskbar.ResumeLayout(false);
@@ -1201,8 +1201,8 @@
         private Guna.UI2.WinForms.Guna2Elipse Elipse;
         private Guna.UI2.WinForms.Guna2ShadowForm ShadowForm;
         private System.Windows.Forms.GroupBox Taskbar_Transparent;
-        private Guna.UI2.WinForms.Guna2RadioButton Transparent_Enable;
-        private Guna.UI2.WinForms.Guna2RadioButton Transparent_Disable;
+        private Guna.UI2.WinForms.Guna2RadioButton TaskbarTransparent_Disable;
+        private Guna.UI2.WinForms.Guna2RadioButton TaskbarTransparent_Enable;
     }
 }
 

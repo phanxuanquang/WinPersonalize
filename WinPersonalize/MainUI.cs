@@ -22,12 +22,8 @@ namespace WinPersonalize
         public MainUI()
         {
             InitializeComponent();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Icon = Properties.Resources.icon;
-
-            ApplyTheme();
-
-            BrightnessTrackBar.Value = get_CurrentBrightnessLevel();
-            ajustResolutionComboBox();
 
             UserPreferenceChanged = new UserPreferenceChangedEventHandler(SystemEvents_UserPreferenceChanged);
             SystemEvents.UserPreferenceChanged += UserPreferenceChanged;
@@ -52,11 +48,6 @@ namespace WinPersonalize
             ApplyButton.HoverState.FillColor = ApplyButton.HoverState.FillColor2 = BrightnessTrackBar.ThumbColor = ControlPaint.Light(themeColor);
             Banner.BackColor = WindowsColor.GetAccentColor();
             Banner.FillColor = Banner.FillColor2 = ControlPaint.Light(WindowsColor.GetAccentColor());
-            Program.ApplyThemeColor_CheckButtons(this);
-
-
-            ShadowForm.SetShadowForm(this);
-            Banner.BackColor = WindowsColor.GetAccentColor();
             Program.ApplyThemeColor_CheckButtons(this);
         }
 
@@ -131,7 +122,7 @@ namespace WinPersonalize
                 if (confirmation == DialogResult.Yes)
                 {
                     Task applyChanges_Taskbar = Task.Factory.StartNew(() => taskbarActions.ApplyAction(
-                            Transparent_Enable.Checked,
+                            TaskbarTransparent_Enable.Checked,
                             TaskbarSize_Small.Checked,
                             SmallSearchIcon.Checked,
                             HideTaskViewIcon.Checked,
@@ -183,7 +174,7 @@ namespace WinPersonalize
 
         private void DefaultButton_Click(object sender, EventArgs e)
         {
-            Transparent_Enable.Checked = TaskbarSize_Small.Checked = PersonalizeColorMode_Dark.Checked = PersonalizeTransparentEffect_Enable.Checked = PersonalizeAccentColor_Enable.Checked = PersonalizeDesktopIconSize_Small.Checked = true;
+            TaskbarTransparent_Enable.Checked = TaskbarSize_Small.Checked = PersonalizeColorMode_Dark.Checked = PersonalizeTransparentEffect_Enable.Checked = PersonalizeAccentColor_Enable.Checked = PersonalizeDesktopIconSize_Small.Checked = true;
             Program.CheckAll_CheckBox(this);
         }
 
@@ -270,5 +261,14 @@ namespace WinPersonalize
         }
         #endregion
 
+        private void MainUI_Load(object sender, EventArgs e)
+        {
+            ApplyTheme();
+
+            BrightnessTrackBar.Value = get_CurrentBrightnessLevel();
+            ajustResolutionComboBox();
+            TaskbarTransparent_Enable.Checked = TaskbarSize_Small.Checked = PersonalizeColorMode_Dark.Checked = PersonalizeTransparentEffect_Enable.Checked = PersonalizeAccentColor_Enable.Checked = PersonalizeDesktopIconSize_Small.Checked = true;
+            Program.CheckAll_CheckBox(this);
+        }
     }
 }
